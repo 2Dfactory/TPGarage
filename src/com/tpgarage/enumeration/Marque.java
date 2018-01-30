@@ -13,7 +13,7 @@ public enum Marque {
 		this.marque = marque;
 	}
 	
-	public String toString(){
+	public String getMarque(){
 		return marque;
 	}
 	

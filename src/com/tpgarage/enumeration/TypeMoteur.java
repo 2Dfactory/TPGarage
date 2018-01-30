@@ -14,7 +14,7 @@ public enum TypeMoteur {
 		this.typeMoteur = typeM;
 	}
 	
-	public String toString(){
+	public String getTypeMoteur(){
 		return typeMoteur;
 	}
 	
