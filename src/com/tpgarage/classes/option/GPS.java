@@ -14,5 +14,9 @@ public class GPS implements Option {
 	public double getPrix() {
 		return this.prix;
 	}
+	
+	public String toString() {
+		return "GPS";
+	}
 
 }

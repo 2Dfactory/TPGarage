@@ -14,4 +14,7 @@ public class SiegeChauffant implements Option {
 		return this.prix;
 	}
 
+	public String toString() {
+		return "Sièges chauffants";
+	}
 }

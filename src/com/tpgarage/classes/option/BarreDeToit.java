@@ -13,5 +13,9 @@ public class BarreDeToit implements Option {
 	public double getPrix() {
 		return this.prix;
 	}
+	
+	public String toString() {
+		return "Barre de toit";
+	}
 
 }

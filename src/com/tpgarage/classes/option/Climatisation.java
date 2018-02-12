@@ -14,4 +14,7 @@ public class Climatisation implements Option {
 		return this.prix;
 	}
 
+	public String toString() {
+		return "Climatisation";
+	}
 }

@@ -14,4 +14,7 @@ public class VitreElectrique implements Option {
 		return this.prix;
 	}
 
+	public String toString() {
+		return "Vitres électriques";
+	}
 }
