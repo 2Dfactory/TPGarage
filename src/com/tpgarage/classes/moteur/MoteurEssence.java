@@ -11,6 +11,8 @@ public class MoteurEssence extends Moteur{
 	public MoteurEssence(String cylindre, Double prix) {
 		super();
 		this.type = TypeMoteur.ESSENCE;
+		this.cylindre = cylindre;
+		this.prix = prix;
 	}
 
 }

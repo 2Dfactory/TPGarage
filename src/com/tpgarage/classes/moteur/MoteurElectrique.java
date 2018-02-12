@@ -11,6 +11,8 @@ public class MoteurElectrique extends Moteur {
 	public MoteurElectrique(String cylindre, Double prix) {
 		super();
 		this.type = TypeMoteur.ELECTRIQUE;
+		this.cylindre = cylindre;
+		this.prix = prix;
 	}
 
 }

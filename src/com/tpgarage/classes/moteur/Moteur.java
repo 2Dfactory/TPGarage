@@ -20,6 +20,10 @@ public class Moteur implements Serializable{
 		this.prix = prix;
 	}
 
+	public String getTypeMoteur() {
+		return this.type.getTypeMoteur();
+	}
+	
 	public String getCylindre() {
 		return cylindre;
 	}

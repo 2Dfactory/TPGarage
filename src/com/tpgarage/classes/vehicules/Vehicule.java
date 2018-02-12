@@ -1,18 +1,29 @@
 package com.tpgarage.classes.vehicules;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.tpgarage.classes.moteur.Moteur;
 import com.tpgarage.enumeration.Marque;
 import com.tpgarage.interfaces.Option;
 
 public class Vehicule implements Serializable {
 	
-	protected double prix;
-	protected String nom;
-	protected List<Option> options = null;
-	protected Marque nomMarque;
+	protected double prix = 0.0;
+	protected String nom = "Pas de nom";
+	protected List<Option> options = new ArrayList<Option>();
+	protected Marque nomMarque = null;
+	protected Moteur moteur = null;
 	
+	public Moteur getMoteur() {
+		return moteur;
+	}
+
+	public void setMoteur(Moteur moteur) {
+		this.moteur = moteur;
+	}
+
 	public Vehicule() {}
 
 	public double getPrix() {
@@ -25,10 +36,6 @@ public class Vehicule implements Serializable {
 
 	public String getNom() {
 		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
 	}
 
 	public List<Option> getOptions() {
@@ -51,18 +58,60 @@ public class Vehicule implements Serializable {
 		this.options.add(opt);
 	}
 
+	/**
+	 * This method calculates the total price of the vehicle
+	 * @return a Double
+	 */
+	protected double calculPrixV() {
+		
+		double prixTot = 0.0;
+		
+		if(this.moteur != null) prixTot += this.moteur.getPrix();
+		
+		if(!options.isEmpty()) {
+			for (Option opt : options) {
+				prixTot += opt.getPrix();
+			}
+		}
+		
+		return prixTot;
+		
+	}
+	
 	@Override
 	public String toString() {
 		
-		String lOption ="[";
+		String str ="Voiture ";
 		
-		for (Option opt : options) {
-			lOption += opt.toString() + "(" + opt.getPrix() + "€)";
+		if(this.nomMarque != null) str += this.nomMarque;
+		else str += " Pas de marque ";
+		
+		str += " : " + this.nom;
+		
+		if(this.moteur != null) str += " Moteur " + this.moteur.getTypeMoteur() + " " + this.moteur.getCylindre() + "(" + this.moteur.getPrix() + "€) ";
+		else str += " Pas de moteur ";
+		
+		str += "[";
+		
+		if(options.isEmpty()) {
+			str += " Pas d'options ";
+		} else {
+			for (Option opt : options) {
+				
+				if(opt == options.get(options.size()-1)) str += opt.toString() + "(" + opt.getPrix() + "€)";
+				else str += opt.toString() + "(" + opt.getPrix() + "€), ";
+			}
 		}
 		
-		lOption += "]";
+		str += "] d'une valeur totale de " + calculPrixV() + "€";
 		
-		return "Vehicule [prix=" + prix + ", nom=" + nom + ", " + lOption + ", nomMarque=" + nomMarque + "]";
+		/*
+			return "Voiture " + this.nomMarque + " : " + this.nom + 
+				" Moteur " + this.moteur.getTypeMoteur() + " " + this.moteur.getCylindre() + "(" + this.moteur.getPrix() + "€) " + str + 
+				" d'une valeur totale de " + calculPrixV() + "€";
+		//*/
+		
+		return str;
 		
 	}
 	

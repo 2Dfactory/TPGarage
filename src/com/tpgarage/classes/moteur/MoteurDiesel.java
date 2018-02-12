@@ -11,6 +11,8 @@ public class MoteurDiesel extends Moteur {
 	public MoteurDiesel(String cylindre, Double prix) {
 		super();
 		this.type = TypeMoteur.DIESEL;
+		this.cylindre = cylindre;
+		this.prix = prix;
 	}
 
 }
