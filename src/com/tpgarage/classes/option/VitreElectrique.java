@@ -1,8 +1,10 @@
 package com.tpgarage.classes.option;
 
+import java.io.Serializable;
+
 import com.tpgarage.interfaces.Option;
 
-public class VitreElectrique implements Option {
+public class VitreElectrique implements Option, Serializable {
 
 	protected double prix = 212.35;
 	

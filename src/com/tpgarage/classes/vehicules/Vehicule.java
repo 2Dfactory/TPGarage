@@ -1,11 +1,12 @@
 package com.tpgarage.classes.vehicules;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.tpgarage.enumeration.Marque;
 import com.tpgarage.interfaces.Option;
 
-public class Vehicule {
+public class Vehicule implements Serializable {
 	
 	protected double prix;
 	protected String nom;
@@ -52,7 +53,17 @@ public class Vehicule {
 
 	@Override
 	public String toString() {
-		return "Vehicule [prix=" + prix + ", nom=" + nom + ", options=" + options + ", nomMarque=" + nomMarque + "]";
+		
+		String lOption ="[";
+		
+		for (Option opt : options) {
+			lOption += opt.toString() + "(" + opt.getPrix() + "€)";
+		}
+		
+		lOption += "]";
+		
+		return "Vehicule [prix=" + prix + ", nom=" + nom + ", " + lOption + ", nomMarque=" + nomMarque + "]";
+		
 	}
 	
 	

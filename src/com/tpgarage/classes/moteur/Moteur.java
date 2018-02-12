@@ -1,8 +1,10 @@
 package com.tpgarage.classes.moteur;
 
+import java.io.Serializable;
+
 import com.tpgarage.enumeration.TypeMoteur;
 
-public class Moteur {
+public class Moteur implements Serializable{
 
 	protected TypeMoteur type;
 	protected String cylindre;
