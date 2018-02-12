@@ -7,6 +7,9 @@ import com.tpgarage.classes.option.Climatisation;
 import com.tpgarage.classes.option.GPS;
 import com.tpgarage.classes.option.SiegeChauffant;
 import com.tpgarage.classes.option.VitreElectrique;
+import com.tpgarage.classes.vehicules.A300B;
+import com.tpgarage.classes.vehicules.D4;
+import com.tpgarage.classes.vehicules.Lagouna;
 import com.tpgarage.classes.vehicules.Vehicule;
 import com.tpgarage.enumeration.Marque;
 
@@ -14,10 +17,11 @@ public class TestVoiture {
 	
 	public static void main(String[] args) {
 		
-		Vehicule v1 = new Vehicule();
-		Vehicule v2 = new Vehicule();
-		Vehicule v3 = new Vehicule();
+		Vehicule v1 = new Lagouna();
+		Vehicule v2 = new D4();
+		Vehicule v3 = new A300B();
 		
+		v1.setPrix(10000.00);
 		v1.setMoteur(new MoteurDiesel("2.0 HDI", 1000.2));
 		v1.setNomMarque(Marque.PIGEOT);
 		v1.addOption(new GPS());

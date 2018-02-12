@@ -64,7 +64,7 @@ public class Vehicule implements Serializable {
 	 */
 	protected double calculPrixV() {
 		
-		double prixTot = 0.0;
+		double prixTot = this.prix;
 		
 		if(this.moteur != null) prixTot += this.moteur.getPrix();
 		
