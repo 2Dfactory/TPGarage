@@ -4,9 +4,7 @@ import com.tpgarage.enumeration.TypeMoteur;
 
 public class MoteurDiesel extends Moteur {
 
-	public MoteurDiesel() {
-		// TODO Auto-generated constructor stub
-	}
+	public MoteurDiesel() {	}
 
 	public MoteurDiesel(String cylindre, Double prix) {
 		super();

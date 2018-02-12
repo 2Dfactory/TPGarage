@@ -4,9 +4,7 @@ import com.tpgarage.enumeration.TypeMoteur;
 
 public class MoteurElectrique extends Moteur {
 
-	public MoteurElectrique() {
-		// TODO Auto-generated constructor stub
-	}
+	public MoteurElectrique() {	}
 
 	public MoteurElectrique(String cylindre, Double prix) {
 		super();
