@@ -22,12 +22,15 @@ public class TestGarage {
 
 		Garage garage = new Garage();
 		
+		//Remplacer true par false dans la condition pour arrêter la suppression du contenu du garage
 		if(true) garage.clearGarage();
 		
 		System.out.println(garage);
 		
+		//Remplacer false par true dans la condition pour pouvoir ajouter les véhicules ci-dessous au garage
 		if(false) {
 			
+			//Création d'un véhicule
 			Vehicule lag1 = new Lagouna();
 			lag1.setNomMarque(Marque.RENO);
 			lag1.setMoteur(new MoteurEssence("150 Chevaux", 10256d));
