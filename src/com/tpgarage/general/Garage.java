@@ -27,6 +27,21 @@ public class Garage {
 	}
 	
 	/**
+	 * This method clear the content of the database
+	 */
+	public void clearGarage() {
+		
+		this.voitures = new ArrayList<Vehicule>();
+		
+		for(String path : listOfVehicle()) {
+			
+			File f = new File(repertoireDatabase + "/" + path);
+			if(f.delete()) System.err.println(path + " : deleted !");
+		}
+		
+	}
+	
+	/**
 	 * This method create the directory where the vehicles will be saved
 	 */
 	private void createDirectory() {
