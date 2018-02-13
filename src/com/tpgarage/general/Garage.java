@@ -18,11 +18,22 @@ import com.tpgarage.classes.vehicules.Vehicule;
 public class Garage {
 	
 	protected List<Vehicule> voitures = new ArrayList<Vehicule>();
-	private String repertoireDatabase = "C:\\Users\\André GUENEY\\git\\TPGarage\\databaseGarage";
+	private String repertoireDatabase = "./databaseGarage";
 	
 	
 	public Garage() {
+		createDirectory();
 		initGarageDb();
+	}
+	
+	/**
+	 * This method create the directory where the vehicles will be saved
+	 */
+	private void createDirectory() {
+		
+		File repertoire = new File(repertoireDatabase);
+		if(!repertoire.exists()) repertoire.mkdir();
+		
 	}
 	
 	/**
@@ -34,12 +45,6 @@ public class Garage {
 		String dbFileVehicule = "/voiture";
 		
 		this.voitures.add(voiture);
-		
-		System.out.println(voiture.toString());
-		System.out.println(quantityOfVehicle());
-		System.out.println(dbFileVehicule + (quantityOfVehicle()+1) + ".ser");
-		
-		
 		
 		ObjectOutputStream oos = null;
 		
@@ -62,9 +67,10 @@ public class Garage {
 		
 	}
 	
-	
+	/**
+	 * This method read the saved and serialized vehicles in the directory 
+	 */
 	private void initGarageDb(){
-		//TODO initialise la liste de véhicule du garage
 		
 		if(this.isEmpty()) {
 			
@@ -81,7 +87,9 @@ public class Garage {
 					
 					try {
 						
+						//System.out.println(((Vehicule)ois.readObject()).toString());
 						voitures.add((Vehicule)ois.readObject());
+						//System.out.println(voitures);
 						
 					} catch (ClassNotFoundException cnfe) {
 						cnfe.printStackTrace();
@@ -133,7 +141,7 @@ public class Garage {
 	 * This method return the liste of saved vehicles in the database
 	 * @return
 	 */
-	public List<String> listOfVehicle() {
+	private List<String> listOfVehicle() {
 		
 		List<String> listOfV = new LinkedList<>();
 		
@@ -149,6 +157,24 @@ public class Garage {
 		return listOfV;
 		
 	}
+
+	@Override
+	public String toString() {
+		
+		String str = "";
+		
+		if(voitures.isEmpty()) return "Aucune voiture sauvegardée !\n"
+				+ "***************************\n"
+				+ "*  Garage OpenClassrooms  *\n"
+				+ "***************************\n";
+		
+		for(Vehicule v : voitures) {
+			str += v + "\n";
+		}
+		
+		return str;
+	}
+	
 	
 
 }
