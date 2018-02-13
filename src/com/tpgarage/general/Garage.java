@@ -32,6 +32,7 @@ public class Garage {
 	private void createDirectory() {
 		
 		File repertoire = new File(repertoireDatabase);
+		//Test si le répertoire existe et le crée s'il n'existe pas
 		if(!repertoire.exists()) repertoire.mkdir();
 		
 	}
@@ -44,6 +45,7 @@ public class Garage {
 		
 		String dbFileVehicule = "/voiture";
 		
+		//Ajout du véhicule dans la liste du garage
 		this.voitures.add(voiture);
 		
 		ObjectOutputStream oos = null;
@@ -54,8 +56,11 @@ public class Garage {
 					new BufferedOutputStream(
 							new FileOutputStream(
 									new File(repertoireDatabase + dbFileVehicule + (quantityOfVehicle()+1) + ".ser"))));
+			
+			//Serialisation du véhicule
 			oos.writeObject(voiture);	
 			
+			//Fermeture du flux
 			oos.close();
 			
 		}
@@ -72,12 +77,14 @@ public class Garage {
 	 */
 	private void initGarageDb(){
 		
+		//Test si la database véhicule est vide
 		if(this.isEmpty()) {
 			
 			ObjectInputStream ois = null;
 			
 			try {
 				
+				//Boucle parcourant l'ensemble des véhicules sérialisés
 				for(String vehicle : listOfVehicle()) {
 					
 					ois = new ObjectInputStream(
@@ -87,14 +94,14 @@ public class Garage {
 					
 					try {
 						
-						//System.out.println(((Vehicule)ois.readObject()).toString());
+						//Désérialisation de chaque véhicule sauvegarder et ajout dans la liste du garage
 						voitures.add((Vehicule)ois.readObject());
-						//System.out.println(voitures);
 						
 					} catch (ClassNotFoundException cnfe) {
 						cnfe.printStackTrace();
 					}
 					
+					//Fermeture du flux
 					ois.close();
 				}
 				
@@ -114,7 +121,7 @@ public class Garage {
 	 * Return true if the database is not empty.
 	 * @return
 	 */
-	public boolean isEmpty() {
+	private boolean isEmpty() {
 
 		if(quantityOfVehicle() == -1) return false;
 		if(quantityOfVehicle() == 0) return false;
@@ -138,7 +145,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method return the liste of saved vehicles in the database
+	 * This method return the list of saved vehicles in the database
 	 * @return
 	 */
 	private List<String> listOfVehicle() {
