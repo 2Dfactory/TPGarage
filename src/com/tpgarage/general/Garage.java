@@ -27,7 +27,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method clear the content of the database
+	 * This method clears the content of the database
 	 */
 	public void clearGarage() {
 		
@@ -42,7 +42,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method create the directory where the vehicles will be saved
+	 * This method creates the directory where the vehicles will be saved
 	 */
 	private void createDirectory() {
 		
@@ -53,7 +53,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method add a vehicle in the garage list of vehicle and serialize the vehicle object
+	 * This method adds a vehicle in the garage list of vehicle and serialize the vehicle object
 	 * @param voiture
 	 */
 	public void addVoiture(Vehicule voiture) {
@@ -88,7 +88,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method read the saved and serialized vehicles in the directory 
+	 * This method reads the saved and serialized vehicles in the directory 
 	 */
 	private void initGarageDb(){
 		
@@ -131,7 +131,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method check if the database is empty or not.
+	 * This method checks if the database is empty or not.
 	 * Return false if the database is empty.
 	 * Return true if the database is not empty.
 	 * @return
@@ -146,7 +146,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method return the quantity of vehicle in the database
+	 * This method returns the quantity of vehicle in the database
 	 * @return
 	 */
 	private int quantityOfVehicle() {
@@ -160,7 +160,7 @@ public class Garage {
 	}
 	
 	/**
-	 * This method return the list of saved vehicles in the database
+	 * This method returns the list of saved vehicles in the database
 	 * @return
 	 */
 	private List<String> listOfVehicle() {
